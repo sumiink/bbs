@@ -27,7 +27,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			close();
+			close(); 
 		}
 		return exist;
 	}

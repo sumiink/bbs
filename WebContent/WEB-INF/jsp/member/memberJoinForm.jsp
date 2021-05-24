@@ -24,7 +24,7 @@ $(function(){
 					alert('사용가능한 아이디입니다.');
 					$('#idCheck').val('checked');
 					$('#memberPwd').focus();
-				}
+				} 
 			},
 			error: function(err){
 				console.log(err);
