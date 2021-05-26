@@ -12,6 +12,29 @@ import com.yedam.member.vo.MemberVO;
 public class MemberServiceImpl extends DAO implements MemberService {
 	PreparedStatement psmt;
 	ResultSet rs;
+	//id, passwd를 체크해주는 메소드
+	public MemberVO loginCheck(MemberVO vo) {
+		String sql="select * from member where id=? and passwd=?";
+		MemberVO rvo = null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getPwd());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				rvo = new MemberVO();
+				rvo.setId(rs.getString("id"));
+				rvo.setPwd(rs.getString("passwd"));
+				rvo.setName(rs.getString("name"));
+				rvo.setAddr(rs.getString("addr"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return rvo;
+	}
 	
 	//id중복 체크 메소드	/중복이면 true 없으면 false
 	public boolean idCheck(String id) {

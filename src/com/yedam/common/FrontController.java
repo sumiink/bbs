@@ -10,8 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.bulletin.web.BulletinForm;
+import com.yedam.bulletin.web.BulletinInsert;
+import com.yedam.bulletin.web.BulletinList;
+import com.yedam.bulletin.web.BulletinSelect;
 import com.yedam.member.web.MemberJoin;
 import com.yedam.member.web.MemberJoinForm;
+import com.yedam.member.web.MemberLogin;
+import com.yedam.member.web.MemberLoginForm;
+import com.yedam.member.web.memberLogOut;
+import com.yedam.notice.web.Notice;
+import com.yedam.notice.web.NoticeInsert;
+import com.yedam.notice.web.NoticeList;
+import com.yedam.notice.web.NoticeListPaging;
+import com.yedam.notice.web.NoticeUpdate;
 
 public class FrontController extends HttpServlet {
 	private HashMap<String, DbCommand> map = new HashMap<>();
@@ -22,6 +34,23 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainPage());
 		map.put("/memberJoinForm.do", new MemberJoinForm());
 		map.put("/memberJoin.do", new MemberJoin());
+		map.put("/memberLoginForm.do", new MemberLoginForm());
+		map.put("/memberLogin.do", new MemberLogin());
+		map.put("/memberLoginOut.do", new memberLogOut());
+		
+		//공지사항
+		map.put("/noticeList.do", new NoticeList());
+		map.put("/noticeListPaging.do", new NoticeListPaging());
+		map.put("/notice.do", new Notice());
+		map.put("/noticeUpdate.do", new NoticeUpdate());
+		map.put("/noticeInsert.do", new NoticeInsert());
+		
+		
+		//게시글관련
+		map.put("/bulletinList.do", new BulletinList());
+		map.put("/bulletinForm.do", new BulletinForm());
+		map.put("/bulletinInsert.do", new BulletinInsert());
+		map.put("/bulletinSelect.do", new BulletinSelect());
 	}
 
 	@Override
@@ -31,7 +60,9 @@ public class FrontController extends HttpServlet {
 		String cpath = req.getContextPath();
 		String path = uri.substring(cpath.length());
 		DbCommand command =  map.get(path);
+		
 		String viewPage = command.execute(req, resp);
+		
 		
 		RequestDispatcher rd = req.getRequestDispatcher(viewPage);
 		rd.forward(req, resp);
