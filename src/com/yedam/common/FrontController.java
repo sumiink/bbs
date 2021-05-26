@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.bulletin.web.BulletinForm;
 import com.yedam.bulletin.web.BulletinInsert;
 import com.yedam.bulletin.web.BulletinList;
+import com.yedam.bulletin.web.BulletinListPaging;
 import com.yedam.bulletin.web.BulletinSelect;
+import com.yedam.bulletin.web.BulletinUpdate;
 import com.yedam.member.web.MemberJoin;
 import com.yedam.member.web.MemberJoinForm;
 import com.yedam.member.web.MemberLogin;
@@ -28,31 +30,33 @@ import com.yedam.notice.web.NoticeUpdate;
 public class FrontController extends HttpServlet {
 	private HashMap<String, DbCommand> map = new HashMap<>();
 
-	@Override
+	@Override 
 	public void init(ServletConfig config) throws ServletException {
 		// 요청페이지 - 실행컨트롤
 		map.put("/main.do", new MainPage());
 		map.put("/memberJoinForm.do", new MemberJoinForm());
-		map.put("/memberJoin.do", new MemberJoin());
+		map.put("/memberJoin.do", new MemberJoin()); 
 		map.put("/memberLoginForm.do", new MemberLoginForm());
-		map.put("/memberLogin.do", new MemberLogin());
+		map.put("/memberLogin.do", new MemberLogin()); 
 		map.put("/memberLoginOut.do", new memberLogOut());
-		
+		 
 		//공지사항
-		map.put("/noticeList.do", new NoticeList());
+		map.put("/noticeList.do", new NoticeList()); 
 		map.put("/noticeListPaging.do", new NoticeListPaging());
 		map.put("/notice.do", new Notice());
 		map.put("/noticeUpdate.do", new NoticeUpdate());
-		map.put("/noticeInsert.do", new NoticeInsert());
+		map.put("/noticeInsert.do", new NoticeInsert()); 
 		
 		
 		//게시글관련
-		map.put("/bulletinList.do", new BulletinList());
+		map.put("/bulletinList.do", new BulletinList()); 
 		map.put("/bulletinForm.do", new BulletinForm());
-		map.put("/bulletinInsert.do", new BulletinInsert());
+		map.put("/bulletinInsert.do", new BulletinInsert()); 
 		map.put("/bulletinSelect.do", new BulletinSelect());
+		map.put("/bulletinUpdate.do", new BulletinUpdate()); 
+		map.put("/bulletinListPaging.do", new BulletinListPaging());  
 	}
-
+ 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");

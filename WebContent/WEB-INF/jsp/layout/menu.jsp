@@ -12,7 +12,7 @@
 
 			<li class="nav-item"><a class="nav-link" href="noticeListPaging.do">공지사항</a> </li>
 
-			<li class="nav-item"><a class="nav-link" href="bulletinList.do">자유게시판</a></li>
+			<li class="nav-item"><a class="nav-link" href="bulletinListPaging.do">자유게시판</a></li>
 
 			<li class="nav-item"><a class="nav-link" href="#">소개하는 글</a></li>
 

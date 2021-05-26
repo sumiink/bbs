@@ -21,7 +21,6 @@ public class BulletinList implements DbCommand {
 		
 		request.setAttribute("bulletinList", list);
 		
-		
 		return "bulletin/bulletinList.tiles";
 	}
 

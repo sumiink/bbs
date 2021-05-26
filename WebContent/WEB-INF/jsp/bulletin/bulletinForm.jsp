@@ -14,7 +14,6 @@
 			height: '600px',
 			width: '800px'
 		}); 
-		
 	})
 	
 	function formCheck() {

@@ -26,6 +26,7 @@ public class NoticeUpdate implements DbCommand {
 		vo.setId(Integer.parseInt(id));
 		vo.setTitle(title);
 		vo.setContent(content);
+		
 		NoticeService service = new NoticeServiceImpl();
 		service.updateNotice(vo);
 
