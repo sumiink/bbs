@@ -111,9 +111,11 @@ public class BulletinServiceImpl extends DAO implements BulletinService {
 	@Override
 	public int deleteBulletin(BulletinVO vo) {
 		String sql = "delete from bulletin where id=?";
-		try {
+		try { 
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, vo.getId());
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건 삭제");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -122,9 +124,6 @@ public class BulletinServiceImpl extends DAO implements BulletinService {
 		return 0;
 
 	}
-	
-	
-	
 	
 	
 	private void close() {

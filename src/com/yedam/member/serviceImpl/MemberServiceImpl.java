@@ -26,7 +26,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 				rvo.setId(rs.getString("id"));
 				rvo.setPwd(rs.getString("passwd"));
 				rvo.setName(rs.getString("name"));
-				rvo.setAddr(rs.getString("addr"));
+				rvo.setAddr(rs.getString("address"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
