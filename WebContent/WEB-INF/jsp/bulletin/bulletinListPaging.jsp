@@ -28,6 +28,8 @@
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
 </style>
+
+
 <script>
 	function formSubmit(bulletinId){
 		frm.id.value = bulletinId;

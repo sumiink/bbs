@@ -16,13 +16,13 @@ public class BulletinDelete implements DbCommand {
 		
 		String id = request.getParameter("id");
 		
-		BulletinService service = BulletinService.
+		BulletinService service = BulletinService();
 		//service.deleteBulletin(vo);
 				
-		request.setAttribute("id", id);
-		
-		BulletinList commad = new BulletinList();				//변경된 리스트 
-		commad.execute(request, response);
+//		request.setAttribute("id", id);
+//		
+//		BulletinList commad = new BulletinList();				//변경된 리스트 
+//		commad.execute(request, response);
 		return "bulletin/bulletinList.tiles";
 	}
 
